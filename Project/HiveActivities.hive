@@ -1,0 +1,24 @@
+-- Activity: 1
+
+--EpisodeIV:
+create table episodeIV (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2");
+LOAD DATA INPATH '/user/root/inputs/episodeIV_dialouges.txt' INTO TABLE episodeIV;
+SELECT name,COUNT(name) AS no_of_lines from episodeIV GROUP BY name ORDER BY no_of_lines;
+
+--EpisodeV:
+create table episodeV (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2");
+LOAD DATA INPATH '/user/root/inputs/episodeV_dialogues.txt' INTO TABLE episodeV;
+SELECT name,COUNT(name) AS no_of_lines from episodeV GROUP BY name ORDER BY no_of_lines;
+
+--EpisodeVI:
+create table episodeVI (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2");
+LOAD DATA INPATH '/user/root/inputs/epidoseVI_dialogues.txt' INTO TABLE episodeVI;
+SELECT name,COUNT(name) AS no_of_lines from episodeVI GROUP BY name ORDER BY no_of_lines;
+
+
+
+-- Activity: 2
+SELECT COUNT(*) FROM episodeIv where INSTR(line, 'Luke')>0;
+
+-- OUTPUT for Activity 2 is : 56
+
